@@ -1,0 +1,127 @@
+/* Hurme Geometric Sans 4 — HitDesigns brand kit (self-hosted) */
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-Hairline.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-HairlineObl.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-Thin.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-ThinObl.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-LightObl.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-RegularObl.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-RegularObl.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-SemiBoldObl.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-Bold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-BoldObl.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-BoldObl.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hurme Geometric Sans 4';
+  src: url('./hurme/HurmeGeometricSans4-BlackObl.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
