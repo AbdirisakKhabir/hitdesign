@@ -1,3 +1,5 @@
+import { PHONE_PRIMARY, PHONE_SECONDARY } from '../constants/contact';
+
 const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
 const quickLinks = [
@@ -73,8 +75,13 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+252654888780" className="transition hover:text-secondary">
-                    +252 65 4888780
+                  <a href={`tel:${PHONE_PRIMARY.tel}`} className="transition hover:text-secondary">
+                    {PHONE_PRIMARY.display}
+                  </a>
+                </li>
+                <li>
+                  <a href={`tel:${PHONE_SECONDARY.tel}`} className="transition hover:text-secondary">
+                    {PHONE_SECONDARY.display}
                   </a>
                 </li>
                 <li className="leading-relaxed text-slate-400">Burco, Somaliland</li>

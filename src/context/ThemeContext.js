@@ -11,7 +11,7 @@ function readStoredTheme() {
   } catch {
     /* ignore */
   }
-  return 'dark';
+  return 'light';
 }
 
 export function ThemeProvider({ children }) {

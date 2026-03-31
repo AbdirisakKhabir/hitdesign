@@ -5,10 +5,14 @@ const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 const tabs = [
   { id: 'all', label: 'All Work' },
   { id: 'poster', label: 'Posters' },
-  { id: 'brand', label: 'Brands' },
+  { id: 'brand', label: 'Logofolio' },
+  { id: 'identity', label: 'Visual Identity' },
+  { id: 'video', label: 'Commercial Videos' },
 ];
 
 const portfolioBase = `${process.env.PUBLIC_URL}/portfolio`;
+/** Visual identity assets — public/visualIdentity/01.jpeg … 15.jpeg */
+const visualIdentityBase = `${process.env.PUBLIC_URL}/visualIdentity`;
 
 /** Brand work — files: brands/brand-01…18.jpg (from Hitdesigns 02/Brand, web-sized) */
 const brandItems = [
@@ -56,7 +60,35 @@ const posterItems = [
   image: `${portfolioBase}/posters/poster-${String(i + 1).padStart(2, '0')}.jpg`,
 }));
 
-const projects = [...posterItems, ...brandItems];
+/** Visual identity — all files from public/visualIdentity/ (01.jpeg–15.jpeg) */
+const identityItems = Array.from({ length: 15 }, (_, i) => {
+  const n = String(i + 1).padStart(2, '0');
+  return {
+    id: `vi${n}`,
+    title: `Visual identity — ${n}`,
+    type: 'Visual identity',
+    category: 'identity',
+    image: `${visualIdentityBase}/${n}.jpeg`,
+  };
+});
+
+/** Commercial videos — MP4 under public/portfolio/commercial-videos/cv-01…04.mp4; optional matching JPG poster cv-01…04.jpg */
+const videoItems = [
+  { id: 'v01', title: 'Brand spot — launch', type: 'Commercial video' },
+  { id: 'v02', title: 'Product showcase', type: 'Commercial video' },
+  { id: 'v03', title: 'Social campaign cut', type: 'Commercial video' },
+  { id: 'v04', title: 'Event recap', type: 'Commercial video' },
+].map((item, i) => {
+  const n = String(i + 1).padStart(2, '0');
+  return {
+    ...item,
+    category: 'video',
+    image: `${portfolioBase}/commercial-videos/cv-${n}.jpg`,
+    videoSrc: `${portfolioBase}/commercial-videos/cv-${n}.mp4`,
+  };
+});
+
+const projects = [...posterItems, ...brandItems, ...identityItems, ...videoItems];
 
 export default function Portfolio() {
   const [active, setActive] = useState('all');
@@ -76,7 +108,7 @@ export default function Portfolio() {
           Portfolio
         </h2>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-400 sm:text-base">
-          Posters and brand work produced by Hitdesigns — logos, campaigns, and seasonal creative.
+          Posters, logofolio, visual identity, commercial video, and brand work produced by Hitdesigns.
         </p>
 
         <div
@@ -115,16 +147,29 @@ export default function Portfolio() {
           {visible.map((item) => (
             <li key={item.id}>
               <figure className="overflow-hidden rounded-lg border border-slate-200/90 bg-slate-50 dark:border-white/10 dark:bg-brand-900/30">
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={`${item.title} — ${item.type}`}
-                    width={800}
-                    height={1000}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover"
-                  />
+                <div className="aspect-[4/5] overflow-hidden bg-slate-200/80 dark:bg-brand-950/50">
+                  {item.videoSrc ? (
+                    <video
+                      className="h-full w-full object-cover"
+                      controls
+                      playsInline
+                      preload="metadata"
+                      poster={item.image}
+                      aria-label={`${item.title} — ${item.type}`}
+                    >
+                      <source src={item.videoSrc} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      src={item.image}
+                      alt={`${item.title} — ${item.type}`}
+                      width={800}
+                      height={1000}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                  )}
                 </div>
                 <figcaption className="border-t border-slate-200/80 px-2.5 py-2 dark:border-white/10">
                   <p className="truncate text-sm font-medium text-slate-900 dark:text-white">{item.title}</p>

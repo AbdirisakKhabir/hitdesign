@@ -1,81 +1,163 @@
+import { useEffect, useRef, useState } from 'react';
+
+import { PHONE_PRIMARY } from '../constants/contact';
+
 const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
-/** Digits only — same number as Contact / Footer (+252 65 4888780) */
-const WHATSAPP_E164 = '252654888780';
-
-function whatsappOrderUrl(packageTitle, isCustom) {
-  const text = isCustom
-    ? `Hi Hitdesigns, I'd like to discuss a custom package and pricing.`
-    : `Hi Hitdesigns, I'd like to order the "${packageTitle}" package.`;
-  return `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(text)}`;
+function whatsappOrderUrl(packageTitle) {
+  const text = `Hi Hitdesigns, I'd like to order the "${packageTitle}" package.`;
+  return `https://wa.me/${PHONE_PRIMARY.whatsappDigits}?text=${encodeURIComponent(text)}`;
 }
 
 const packages = [
   {
-    id: 'essential',
-    title: 'Essential',
-    price: '$199',
-    priceNote: 'per project',
-    description: 'A focused start for brands that need core creative support.',
+    id: 'essential-business',
+    emphasis: 'Essential',
+    subtitle: 'Business Package',
+    title: 'Essential Business Package',
+    description:
+      'A solid starting point for brands that want consistent social presence and on-brand creative without the overhead.',
     features: [
-      'Social media setup & 2 campaign graphics',
-      'Logo refresh or simple brand mark',
-      'Up to 3 marketing design pieces (flyers / posts)',
-      '1 round of revisions',
+      'Core social setup and posting rhythm',
+      'Campaign graphics and essential marketing pieces',
+      'Great for new and lean teams testing the waters',
     ],
     highlighted: false,
-    isCustom: false,
+    icon: (
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+      </svg>
+    ),
   },
   {
-    id: 'professional',
-    title: 'Professional',
-    price: '$499',
-    priceNote: 'per project',
-    description: 'Our most popular tier for growing businesses and campaigns.',
+    id: 'small-business',
+    emphasis: 'Small',
+    subtitle: 'Business Package',
+    title: 'Small Business Package',
+    description:
+      'Built for growing businesses that need steady content, clearer branding on feeds, and room to scale campaigns.',
     features: [
-      'Social marketing plan + 6 creative assets',
-      'Graphic design & brand guidelines (light)',
-      'Marketing design pack (posters, banners, digital)',
-      'Video marketing — 1 short promo or reel cut',
-      '2 rounds of revisions',
+      'Multi-format creatives for posts and promos',
+      'Stronger alignment between visuals and your brand story',
+      'Room to test campaigns and grow engagement',
+    ],
+    highlighted: false,
+    icon: (
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: 'medium-business',
+    emphasis: 'Medium',
+    subtitle: 'Business Package',
+    title: 'Medium Business Package',
+    description:
+      'Our balanced tier for brands ready for structured social strategy, richer creative output, and ongoing momentum.',
+    features: [
+      'Campaign-led planning across your priority channels',
+      'Heavier design and content volume for sustained visibility',
+      'Ideal when marketing is a core growth lever',
     ],
     highlighted: true,
-    isCustom: false,
+    icon: (
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+    ),
   },
   {
-    id: 'complete',
-    title: 'Complete',
-    price: '$999',
-    priceNote: 'per project',
-    description: 'Full creative coverage for launches and sustained visibility.',
+    id: 'enterprise-business',
+    emphasis: 'Enterprise',
+    subtitle: 'Business Package',
+    title: 'Enterprise Business Package',
+    description:
+      'Full-scale social and creative support for organizations that need priority execution, depth, and coordination.',
     features: [
-      'Social media marketing + management (1 channel)',
-      'Full branding suite (logo, palette, typography)',
-      'Marketing & event-ready design bundle',
-      'Video marketing — 2 deliverables',
-      'Priority turnaround & 3 revision rounds',
+      'High-volume creative and campaign coverage',
+      'Priority workflows for launches and seasonal pushes',
+      'Suited to teams with complex goals and multiple touchpoints',
     ],
     highlighted: false,
-    isCustom: false,
+    icon: (
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M10 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    ),
   },
   {
-    id: 'custom',
-    title: 'Custom package',
-    price: 'Negotiation',
-    priceNote: 'tailored scope',
-    description: 'Pick only what you need—scope and pricing agreed together.',
+    id: 'academic-project',
+    emphasis: 'Academic',
+    subtitle: 'Project Package',
+    title: 'Academic Project Package',
+    description:
+      'Tailored for schools, programs, and education-focused initiatives—clear messaging parents and students can trust.',
     features: [
-      'Mix services: SMM, management, branding, design, video, events',
-      'Flexible timelines and deliverables',
-      'Dedicated consultation before we quote',
-      'Ideal for retainers, agencies, and large campaigns',
+      'Tone and visuals suited to learning communities',
+      'Enrollment, events, and awareness campaigns',
+      'Steady presence that reflects your institution’s values',
     ],
     highlighted: false,
-    isCustom: true,
+    icon: (
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: 'health-project',
+    emphasis: 'Health',
+    subtitle: 'Project Package',
+    title: 'Health Project Package',
+    description:
+      'For clinics, wellness brands, and health initiatives—trust-first creative that respects your audience and sector.',
+    features: [
+      'Calm, credible visuals aligned with care and professionalism',
+      'Campaigns for awareness, services, and community trust',
+      'Messaging that stays clear and responsible on social',
+    ],
+    highlighted: false,
+    icon: (
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    ),
   },
 ];
 
 export default function Packages() {
+  const gridRef = useRef(null);
+  const [cardsInView, setCardsInView] = useState(false);
+
+  useEffect(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setCardsInView(true);
+      return;
+    }
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCardsInView(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <section
       id="packages"
@@ -83,34 +165,47 @@ export default function Packages() {
     >
       <div className="mx-auto max-w-7xl">
         <header className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary dark:text-secondary">Packages</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary dark:text-secondary">Social media packages</p>
           <h2 className="mt-2 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-white">
-            Pricing &amp; services
+            Six packages to match your{' '}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">goals &amp; scale</span>
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
-            Clear tiers for common needs—plus a custom option when your scope is unique. Tap Order now to chat on WhatsApp.
+            From essential through enterprise—plus academic and health-focused projects. Tap Order now to chat on WhatsApp and get a tailored quote.
           </p>
         </header>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:mt-10 lg:gap-5 xl:grid-cols-4">
-          {packages.map((pkg) => (
+        <div
+          ref={gridRef}
+          className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:mt-10 lg:grid-cols-3 lg:gap-6"
+        >
+          {packages.map((pkg, index) => (
             <article
               key={pkg.id}
-              className={`flex flex-col rounded-2xl border p-5 shadow-sm transition ${
+              style={cardsInView ? { animationDelay: `${index * 0.07}s` } : undefined}
+              className={`flex flex-col rounded-2xl border p-5 shadow-sm transition will-change-transform motion-reduce:will-change-auto sm:p-6 ${
+                cardsInView
+                  ? 'motion-safe:animate-about-card-in motion-reduce:opacity-100 motion-reduce:translate-y-0'
+                  : 'opacity-0 translate-y-5 motion-reduce:opacity-100 motion-reduce:translate-y-0'
+              } ${
                 pkg.highlighted
                   ? 'border-primary/40 bg-gradient-to-b from-primary/[0.06] to-transparent ring-2 ring-primary/25 dark:border-secondary/35 dark:from-secondary/10 dark:ring-secondary/25'
                   : 'border-slate-200/90 bg-slate-50/80 dark:border-white/10 dark:bg-brand-900/35'
               }`}
             >
-              <h3 className="text-base font-bold text-slate-900 dark:text-white">{pkg.title}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">{pkg.description}</p>
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/12 to-secondary/20 text-primary shadow-inner ring-1 ring-primary/10 dark:from-primary/25 dark:to-secondary/25 dark:text-secondary dark:ring-white/10 sm:h-[4.5rem] sm:w-[4.5rem]">
+                {pkg.icon}
+              </div>
+
+              <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+                <span className="text-primary dark:text-secondary">{pkg.emphasis}</span>{' '}
+                <span className="font-semibold text-slate-800 dark:text-slate-100">{pkg.subtitle}</span>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">{pkg.description}</p>
 
               <div className="mt-4 border-t border-slate-200/80 pt-4 dark:border-white/10">
-                <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0">
-                  <span className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">{pkg.price}</span>
-                  {pkg.priceNote && (
-                    <span className="text-xs font-medium text-slate-500 dark:text-slate-500">{pkg.priceNote}</span>
-                  )}
+                <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Pricing on request — we&apos;ll match scope to your tier.
                 </p>
               </div>
 
@@ -124,7 +219,7 @@ export default function Packages() {
               </ul>
 
               <a
-                href={whatsappOrderUrl(pkg.title, pkg.isCustom)}
+                href={whatsappOrderUrl(pkg.title)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full px-3 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-secondary dark:focus-visible:ring-offset-[#050d18] ${

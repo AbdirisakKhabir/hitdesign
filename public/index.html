@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32.png" />
@@ -7,7 +7,7 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#001b36" />
+    <meta name="theme-color" content="#f8fafc" />
     <meta
       name="description"
       content="HitDesign — Transforming ideas into powerful digital brands. Creative design, digital marketing, and branding in Somaliland."
@@ -30,9 +30,9 @@
     <script>
       try {
         var _t = localStorage.getItem('hitdesign-theme');
-        document.documentElement.classList.toggle('dark', _t !== 'light');
+        document.documentElement.classList.toggle('dark', _t === 'dark');
       } catch (e) {
-        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('dark');
       }
     </script>
   </head>

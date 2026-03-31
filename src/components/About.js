@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+
 const cards = [
   {
     key: 'vision',
@@ -6,7 +8,7 @@ const cards = [
     body:
       'To become a leading creative digital agency that empowers businesses through design and strategic marketing.',
     icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         <path
           strokeLinecap="round"
@@ -28,7 +30,7 @@ const cards = [
     body:
       'Help brands reach their full potential with creative design and digital strategies that deliver real results.',
     icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
@@ -45,7 +47,7 @@ const cards = [
     body:
       'Campaigns, visual identity, content, and social presence—built to engage audiences and support your goals.',
     icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -54,7 +56,7 @@ const cards = [
       </svg>
     ),
     base:
-      'border-slate-200/80 bg-gradient-to-br from-slate-50/95 via-white to-brand-50/40 shadow-md shadow-slate-400/10 ring-1 ring-slate-200/60 sm:col-span-2 lg:col-span-1 dark:border-white/10 dark:bg-gradient-to-br dark:from-brand-800/40 dark:via-brand-900/70 dark:to-brand-950 dark:shadow-lg dark:shadow-black/20 dark:ring-white/10',
+      'border-slate-200/80 bg-gradient-to-br from-slate-50/95 via-white to-brand-50/40 shadow-md shadow-slate-400/10 ring-1 ring-slate-200/60 dark:border-white/10 dark:bg-gradient-to-br dark:from-brand-800/40 dark:via-brand-900/70 dark:to-brand-950 dark:shadow-lg dark:shadow-black/20 dark:ring-white/10',
     focus:
       'focus-visible:border-primary/60 focus-visible:bg-gradient-to-br focus-visible:from-white focus-visible:via-brand-50/80 focus-visible:to-secondary/20 focus-visible:shadow-xl focus-visible:shadow-primary/20 focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:focus-visible:border-primary/40 dark:focus-visible:from-brand-800 dark:focus-visible:via-brand-900 dark:focus-visible:to-[#071222] dark:focus-visible:shadow-primary/25 dark:focus-visible:ring-primary/25 dark:focus-visible:ring-offset-brand-950',
     accent: 'from-primary via-sky-500 to-secondary',
@@ -62,6 +64,29 @@ const cards = [
 ];
 
 export default function About() {
+  const gridRef = useRef(null);
+  const [cardsInView, setCardsInView] = useState(false);
+
+  useEffect(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setCardsInView(true);
+      return;
+    }
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCardsInView(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <div
       id="about"
@@ -98,34 +123,51 @@ export default function About() {
           </div>
 
           {/* Cards */}
-          <dl className="mt-8 grid gap-4 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-5">
-            {cards.map((card) => (
+          <dl
+            ref={gridRef}
+            className="mt-8 grid gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-6"
+          >
+            {cards.map((card, index) => (
               <div
                 key={card.key}
                 tabIndex={0}
                 role="article"
                 aria-label={card.label}
-                className={`group relative overflow-hidden rounded-2xl border p-5 outline-none transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,118,214,0.15)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,118,214,0.25)] sm:p-6 ${card.base} ${card.focus} focus-visible:-translate-y-1 focus-visible:outline-none`}
+                style={
+                  cardsInView
+                    ? { animationDelay: `${index * 0.075}s` }
+                    : undefined
+                }
+                className={`group relative overflow-hidden rounded-2xl border p-6 outline-none transition-all duration-300 ease-out will-change-transform motion-reduce:will-change-auto hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,118,214,0.15)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,118,214,0.25)] sm:p-7 lg:p-8 ${card.base} ${card.focus} focus-visible:-translate-y-1 focus-visible:outline-none ${
+                  cardsInView
+                    ? 'motion-safe:animate-about-card-in motion-reduce:opacity-100 motion-reduce:translate-y-0'
+                    : 'opacity-0 translate-y-5 motion-reduce:opacity-100 motion-reduce:translate-y-0'
+                }`}
               >
                 <div
-                  className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 ${card.accent}`}
+                  className={`absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 bg-gradient-to-r transition-transform duration-500 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100 ${card.accent}`}
                   aria-hidden
                 />
                 <div className="flex items-start justify-between gap-4">
                   <span
-                    className="font-mono text-[10px] font-bold tabular-nums text-slate-400 dark:text-slate-500"
+                    className="font-mono text-[11px] font-bold tabular-nums text-slate-400 transition-transform duration-300 motion-safe:group-hover:translate-x-0.5 dark:text-slate-500"
                     aria-hidden
                   >
                     {card.num}
                   </span>
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-secondary/15 text-primary shadow-inner ring-1 ring-white/60 dark:from-primary/20 dark:to-secondary/20 dark:text-secondary dark:ring-white/10">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/15 text-primary shadow-inner ring-1 ring-white/60 transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 motion-safe:group-hover:rotate-3 motion-safe:group-focus-visible:scale-110 dark:from-primary/20 dark:to-secondary/20 dark:text-secondary dark:ring-white/10">
                     {card.icon}
                   </div>
                 </div>
-                <dt className="relative mt-3 text-sm font-bold uppercase tracking-[0.12em] text-primary dark:text-secondary">
+                <dt className="relative mt-4 text-base font-bold uppercase tracking-[0.12em] text-primary dark:text-secondary">
                   {card.label}
                 </dt>
-                <dd className="relative mt-3 text-base leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-800 group-focus-visible:text-slate-800 dark:text-slate-300 dark:group-hover:text-slate-100 dark:group-focus-visible:text-white">
+                <dd className="relative mt-3 m-0 text-base leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-800 group-focus-visible:text-slate-800 sm:text-lg dark:text-slate-300 dark:group-hover:text-slate-100 dark:group-focus-visible:text-white">
+                  {card.stat ? (
+                    <p className="mb-3 text-3xl font-extrabold tabular-nums tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+                      {card.stat}
+                    </p>
+                  ) : null}
                   {card.body}
                 </dd>
               </div>

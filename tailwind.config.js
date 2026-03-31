@@ -36,6 +36,8 @@ module.exports = {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         marquee: 'marquee 42s linear infinite',
         'marquee-rev': 'marquee 48s linear infinite reverse',
+        'about-card-in':
+          'aboutCardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards',
       },
       keyframes: {
         float: {
@@ -45,6 +47,10 @@ module.exports = {
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        aboutCardIn: {
+          '0%': { opacity: '0', transform: 'translateY(1.35rem) scale(0.98)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
         },
       },
     },

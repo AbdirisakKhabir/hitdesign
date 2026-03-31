@@ -11,5 +11,6 @@ test('renders Hitdesigns branding', () => {
       </ThemeProvider>
     </BrowserRouter>
   );
-  expect(screen.getByAltText(/Hitdesigns — Branding & Advertising/)).toBeInTheDocument();
+  const logos = screen.getAllByAltText(/Hitdesigns — Branding & Advertising/);
+  expect(logos.length).toBeGreaterThanOrEqual(1);
 });

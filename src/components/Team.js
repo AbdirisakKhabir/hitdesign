@@ -47,7 +47,7 @@ const members = [
     key: 'suhaib',
     photo: 'suhaib.png',
     name: 'Suhaib Saed Mohamed',
-    role: 'Graphic Designer',
+    role: 'Co-Founder & Graphic Designer',
     description:
       'Turns concepts into striking visuals—from identity systems to campaign assets—with attention to detail.',
   },
@@ -60,9 +60,9 @@ const members = [
       'Produces video and motion content that tells stories with clarity, pace, and brand consistency.',
   },
   {
-    key: 'amina',
+    key: 'hafsa',
     photo: 'hafsa.png',
-    name: 'Amina Hassan Omar',
+    name: 'Hafsa Hassan Omar',
     role: 'Client Success Lead',
     description:
       'Owns onboarding and ongoing communication, making sure expectations, timelines, and feedback stay transparent.',
@@ -86,8 +86,8 @@ export default function Team() {
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary dark:text-secondary">Our team</span>
           </div>
           <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-            People behind{' '}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Hitdesigns</span>
+            The Team Behind{' '}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Our Success</span>
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
             Strategists, creatives, and operators working together to grow brands with clarity and care.

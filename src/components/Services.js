@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+
 const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
 const services = [
@@ -7,7 +9,7 @@ const services = [
     description:
       'Strategic campaigns across social platforms to grow visibility, engagement, and conversions for your brand.',
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -22,7 +24,7 @@ const services = [
     description:
       'Content creation, scheduling, community interaction, and steady growth of your social presence.',
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -37,7 +39,7 @@ const services = [
     description:
       'Logos, brand guidelines, and marketing materials that express who you are with clarity and consistency.',
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -52,7 +54,7 @@ const services = [
     description:
       'Posters, flyers, banners, and digital creatives tailored for launches, promos, and campaigns.',
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -67,7 +69,7 @@ const services = [
     description:
       'Promotional and social-first video that tells your story, holds attention, and supports your message.',
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -82,7 +84,7 @@ const services = [
     description:
       'Cohesive visuals for events—banners, stages, backdrops, and collateral that feel on-brand on site.',
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
       </svg>
     ),
@@ -90,6 +92,29 @@ const services = [
 ];
 
 export default function Services() {
+  const gridRef = useRef(null);
+  const [cardsInView, setCardsInView] = useState(false);
+
+  useEffect(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setCardsInView(true);
+      return;
+    }
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCardsInView(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <section
       id="services"
@@ -117,26 +142,38 @@ export default function Services() {
           </p>
         </header>
 
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-5">
-          {services.map((item) => (
+        <ul
+          ref={gridRef}
+          className="mt-8 grid gap-4 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-5"
+        >
+          {services.map((item, index) => (
             <li key={item.key}>
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm ring-1 ring-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/10 dark:border-white/10 dark:bg-brand-900/50 dark:ring-white/5 dark:hover:border-secondary/30 dark:hover:shadow-secondary/10">
+              <article
+                style={cardsInView ? { animationDelay: `${index * 0.075}s` } : undefined}
+                className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm ring-1 ring-slate-200/50 transition-all duration-300 will-change-transform motion-reduce:will-change-auto hover:-translate-y-1 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/10 dark:border-white/10 dark:bg-brand-900/50 dark:ring-white/5 dark:hover:border-secondary/30 dark:hover:shadow-secondary/10 ${
+                  cardsInView
+                    ? 'motion-safe:animate-about-card-in motion-reduce:opacity-100 motion-reduce:translate-y-0'
+                    : 'opacity-0 translate-y-5 motion-reduce:opacity-100 motion-reduce:translate-y-0'
+                }`}
+              >
                 <div
-                  className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-brand-500 to-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary via-brand-500 to-secondary transition-transform duration-500 ease-out group-hover:scale-x-100"
                   aria-hidden
                 />
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-secondary/15 text-primary dark:from-primary/25 dark:to-secondary/20 dark:text-secondary">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/12 to-secondary/18 text-primary shadow-inner ring-1 ring-primary/10 transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 motion-safe:group-hover:rotate-3 dark:from-primary/25 dark:to-secondary/25 dark:text-secondary dark:ring-white/10 sm:h-[4.5rem] sm:w-[4.5rem]">
                   {item.icon}
                 </div>
-                <h3 className="mt-4 text-base font-bold tracking-tight text-slate-900 dark:text-white">{item.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">{item.description}</p>
+                <h3 className="mt-5 text-base font-bold tracking-tight text-slate-900 sm:text-lg dark:text-white">{item.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-800 dark:text-slate-400 dark:group-hover:text-slate-200 sm:text-base">
+                  {item.description}
+                </p>
                 <a
                   href="/#contact"
-                  className="mt-4 inline-flex items-center text-sm font-semibold text-primary/90 transition-colors hover:text-primary dark:text-secondary/90 dark:hover:text-secondary"
+                  className="mt-4 inline-flex items-center text-sm font-semibold text-primary/90 transition-colors hover:text-primary group-hover:text-primary dark:text-secondary/90 dark:hover:text-secondary dark:group-hover:text-secondary"
                 >
                   Get started
                   <svg
-                    className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                    className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

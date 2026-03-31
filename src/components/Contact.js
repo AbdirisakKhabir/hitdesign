@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { PHONE_PRIMARY, PHONE_SECONDARY } from '../constants/contact';
+
 const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
 const initial = {
@@ -78,10 +80,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a
-                href="tel:+252654888780"
-                className="group flex gap-3 rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm ring-1 ring-slate-200/50 transition hover:border-primary/30 hover:shadow-md dark:border-white/10 dark:bg-brand-900/50 dark:ring-white/5 dark:hover:border-secondary/30"
-              >
+              <div className="flex gap-3 rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm ring-1 ring-slate-200/50 dark:border-white/10 dark:bg-brand-900/50 dark:ring-white/5">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-secondary/15 text-primary dark:from-primary/25 dark:to-secondary/20 dark:text-secondary">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
                     <path
@@ -91,13 +90,18 @@ export default function Contact() {
                     />
                   </svg>
                 </span>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Phone</p>
-                  <p className="mt-1 font-medium text-slate-900 transition group-hover:text-primary dark:text-white dark:group-hover:text-secondary">
-                    +252 65 4888780
-                  </p>
+                  <div className="mt-1 flex flex-col gap-1.5 font-medium text-slate-900 dark:text-white">
+                    <a href={`tel:${PHONE_PRIMARY.tel}`} className="transition hover:text-primary dark:hover:text-secondary">
+                      {PHONE_PRIMARY.display}
+                    </a>
+                    <a href={`tel:${PHONE_SECONDARY.tel}`} className="transition hover:text-primary dark:hover:text-secondary">
+                      {PHONE_SECONDARY.display}
+                    </a>
+                  </div>
                 </div>
-              </a>
+              </div>
 
               <div className="flex gap-3 rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm ring-1 ring-slate-200/50 dark:border-white/10 dark:bg-brand-900/50 dark:ring-white/5">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-secondary/15 text-primary dark:from-primary/25 dark:to-secondary/20 dark:text-secondary">

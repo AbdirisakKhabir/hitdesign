@@ -1,4 +1,5 @@
 import About from './About';
+import Performance from './Performance';
 
 const logoMark = `${process.env.PUBLIC_URL}/branding/logo-mark.png`;
 const techBase = `${process.env.PUBLIC_URL}/tech`;
@@ -41,11 +42,11 @@ export default function Hero() {
       <div className="pointer-events-none absolute -left-32 top-0 h-80 w-80 rounded-full bg-primary/12 blur-3xl dark:bg-primary/20" />
       <div className="pointer-events-none absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-secondary/10 blur-3xl dark:bg-secondary/12" />
 
-      {/* Fills viewport below navbar; About stays outside this height */}
-      <div className="relative flex min-h-[calc(100dvh-5.25rem)] flex-col justify-center sm:min-h-[calc(100dvh-6.25rem)]">
-        <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-10 pb-12 pt-4 sm:gap-12 sm:pb-14 sm:pt-6 lg:flex-row lg:items-center lg:gap-14 lg:pb-16 lg:pt-2">
-        {/* Copy */}
-        <div className="flex-1 text-center lg:max-w-2xl lg:text-left">
+      {/* Fills viewport below navbar; About stays outside this height — svh on small viewports helps mobile browser UI; dvh from sm+ */}
+      <div className="relative flex min-h-[calc(100svh-5.25rem)] flex-col justify-center sm:min-h-[calc(100dvh-6.25rem)]">
+        <div className="relative mx-auto flex w-full min-w-0 max-w-7xl flex-col gap-10 pb-12 pt-4 sm:gap-12 sm:pb-14 sm:pt-6 lg:flex-row lg:items-center lg:gap-14 lg:pb-16 lg:pt-2">
+        {/* Copy — min-w-0 avoids flex overflow on narrow / zoomed / wide-mobile viewports */}
+        <div className="min-w-0 flex-1 text-center lg:max-w-2xl lg:text-left">
           <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 sm:text-4xl sm:leading-[1.08] lg:text-[2.65rem] lg:leading-[1.06] xl:text-[3rem] xl:leading-[1.05] dark:text-white">
             Transforming ideas into{' '}
             <span className="bg-gradient-to-r from-primary via-brand-600 to-secondary bg-clip-text text-transparent dark:from-secondary dark:via-white dark:to-brand-200">
@@ -53,7 +54,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg lg:mx-0 dark:text-slate-400">
-            Creative design, digital marketing, and branding that help businesses grow with clarity and impact.
+          We help businesses grow through creative design, strategic digital marketing, and innovative branding solutions.
           </p>
           <div className="mt-7 flex justify-start">
             <a
@@ -79,8 +80,8 @@ export default function Hero() {
           </dl>
         </div>
 
-        {/* Glass card + tech stack badges on corners (single card) */}
-        <div className="relative mx-auto w-full max-w-[360px] shrink-0 sm:max-w-[400px] lg:max-w-[440px]">
+        {/* Glass card + tech stack badges — max-w never exceeds parent (works on all widths, including “desktop” mode on mobile) */}
+        <div className="relative mx-auto w-full min-w-0 max-w-[min(100%,360px)] shrink-0 sm:max-w-[min(100%,400px)] lg:max-w-[min(100%,440px)]">
             <div className="absolute -inset-2 rounded-[1.75rem] bg-gradient-to-br from-primary/25 via-transparent to-secondary/20 opacity-80 blur-xl dark:from-primary/20 dark:to-secondary/15" aria-hidden />
             {cornerTechStack.map((tool) => (
               <div
@@ -138,6 +139,8 @@ export default function Hero() {
       </div>
 
       <About />
+
+      <Performance />
 
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-100 to-transparent dark:from-brand-950" />
     </section>
