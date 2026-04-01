@@ -72,30 +72,12 @@ const identityItems = Array.from({ length: 15 }, (_, i) => {
   };
 });
 
-/** Commercial videos - MP4 under public/portfolio/commercial-videos/cv-01…04.mp4; optional matching JPG poster cv-01…04.jpg */
-const mp4VideoItems = [
-  { id: 'v01', title: 'Brand spot, launch', type: 'Commercial video' },
-  { id: 'v02', title: 'Product showcase', type: 'Commercial video' },
-  { id: 'v03', title: 'Social campaign cut', type: 'Commercial video' },
-  { id: 'v04', title: 'Event recap', type: 'Commercial video' },
-].map((item, i) => {
-  const n = String(i + 1).padStart(2, '0');
-  return {
-    ...item,
-    category: 'video',
-    image: `${portfolioBase}/commercial-videos/cv-${n}.jpg`,
-    videoSrc: `${portfolioBase}/commercial-videos/cv-${n}.mp4`,
-  };
-});
-
-/** Facebook Reels embedded in Commercial Videos tab */
-const facebookReelItems = [
+/** Commercial Videos tab — Facebook Reels */
+const videoItems = [
   { id: 'fr01', title: 'Social reel 1', type: 'Facebook reel', facebookReelUrl: 'https://www.facebook.com/reel/1479503777139584' },
   { id: 'fr02', title: 'Social reel 2', type: 'Facebook reel', facebookReelUrl: 'https://www.facebook.com/reel/1646645163197855' },
   { id: 'fr03', title: 'Social reel 3', type: 'Facebook reel', facebookReelUrl: 'https://www.facebook.com/reel/1290132326347033' },
 ].map((item) => ({ ...item, category: 'video' }));
-
-const videoItems = [...mp4VideoItems, ...facebookReelItems];
 
 function facebookReelEmbedSrc(reelUrl) {
   const href = encodeURIComponent(reelUrl);
