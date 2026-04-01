@@ -16,7 +16,7 @@ export default function HomePage() {
       <Services />
       <Packages />
       <Clients />
-      <Portfolio />
+      <Portfolio showCommercialVideos={false} />
       <Testimonials />
       <Team />
       <Contact />

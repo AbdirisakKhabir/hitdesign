@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 
 const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
-const tabs = [
+const tabsAll = [
   { id: 'all', label: 'All Work' },
   { id: 'poster', label: 'Posters' },
   { id: 'brand', label: 'Logofolio' },
@@ -88,15 +88,21 @@ const videoItems = [
   };
 });
 
-const projects = [...posterItems, ...brandItems, ...identityItems, ...videoItems];
+const projectsAll = [...posterItems, ...brandItems, ...identityItems, ...videoItems];
 
-export default function Portfolio() {
+export default function Portfolio({ showCommercialVideos = true }) {
   const [active, setActive] = useState('all');
+
+  const tabs = showCommercialVideos ? tabsAll : tabsAll.filter((t) => t.id !== 'video');
+  const projects = useMemo(
+    () => (showCommercialVideos ? projectsAll : projectsAll.filter((p) => p.category !== 'video')),
+    [showCommercialVideos],
+  );
 
   const visible = useMemo(() => {
     if (active === 'all') return projects;
     return projects.filter((p) => p.category === active);
-  }, [active]);
+  }, [active, projects]);
 
   return (
     <section
