@@ -49,7 +49,7 @@ const members = [
     name: 'Suhaib Saed Mohamed',
     role: 'Co-Founder & Graphic Designer',
     description:
-      'Turns concepts into striking visuals—from identity systems to campaign assets—with attention to detail.',
+      'Turns concepts into striking visuals, from identity systems to campaign assets, with attention to detail.',
   },
   {
     key: 'mohamed',
@@ -62,10 +62,10 @@ const members = [
   {
     key: 'hafsa',
     photo: 'hafsa.png',
-    name: 'Hafsa Hassan Omar',
-    role: 'Client Success Lead',
+    name: 'Hafsa Abdilahi Ali',
+    role: 'Content Creator',
     description:
-      'Owns onboarding and ongoing communication, making sure expectations, timelines, and feedback stay transparent.',
+      'Creates and shapes content across channels so brand voice stays consistent, engaging, and on-strategy.',
   },
 ];
 

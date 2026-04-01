@@ -45,7 +45,7 @@ const cards = [
     num: '03',
     label: 'What we do',
     body:
-      'Campaigns, visual identity, content, and social presence—built to engage audiences and support your goals.',
+      'Campaigns, visual identity, content, and social presence, built to engage audiences and support your goals.',
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
         <path
@@ -104,21 +104,23 @@ export default function About() {
 
         <div className="relative px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
           {/* Header */}
-          <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-3.5 py-1.5 shadow-sm dark:border-secondary/25 dark:bg-brand-900/60">
-              <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-primary to-secondary" aria-hidden />
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary dark:text-secondary">About us</span>
+          <div className="mx-auto max-w-3xl">
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-3.5 py-1.5 shadow-sm dark:border-secondary/25 dark:bg-brand-900/60">
+                <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-primary to-secondary" aria-hidden />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary dark:text-secondary">About us</span>
+              </div>
+              <h2 className="mt-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-2xl font-extrabold tracking-tight text-transparent sm:text-3xl lg:text-[2rem] lg:leading-tight dark:from-white dark:via-slate-100 dark:to-white">
+                Creative strategy for the digital world
+              </h2>
             </div>
-            <h2 className="mt-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-2xl font-extrabold tracking-tight text-transparent sm:text-3xl lg:text-[2rem] lg:leading-tight dark:from-white dark:via-slate-100 dark:to-white">
-              Creative strategy for the digital world
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-balance text-lg leading-relaxed text-slate-600 lg:mx-0 dark:text-slate-300">
+            <p className="mt-4 text-justify text-lg leading-relaxed text-slate-600 dark:text-slate-300">
               Hitdesigns is a creative digital agency focused on helping businesses build strong brands and grow online.
               We specialize in digital marketing, graphic design, branding, and social media management.
             </p>
-            <p className="mx-auto mt-3 max-w-2xl text-balance text-base leading-relaxed text-slate-500 lg:mx-0 dark:text-slate-400">
+            <p className="mt-3 text-justify text-base leading-relaxed text-slate-500 dark:text-slate-400">
               Our mission is to transform ideas into powerful digital brands through creativity, strategy, and innovative
-              solutions—so you can reach the right people with clarity and impact.
+              solutions, so you can reach the right people with clarity and impact.
             </p>
           </div>
 
@@ -150,19 +152,19 @@ export default function About() {
                 />
                 <div className="flex items-start justify-between gap-4">
                   <span
-                    className="font-mono text-[11px] font-bold tabular-nums text-slate-400 transition-transform duration-300 motion-safe:group-hover:translate-x-0.5 dark:text-slate-500"
+                    className="font-mono text-sm font-bold tabular-nums text-slate-500 transition-transform duration-300 motion-safe:group-hover:translate-x-0.5 sm:text-base dark:text-slate-400"
                     aria-hidden
                   >
                     {card.num}
                   </span>
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/15 text-primary shadow-inner ring-1 ring-white/60 transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 motion-safe:group-hover:rotate-3 motion-safe:group-focus-visible:scale-110 dark:from-primary/20 dark:to-secondary/20 dark:text-secondary dark:ring-white/10">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-md shadow-primary/35 transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 motion-safe:group-focus-visible:scale-110 dark:bg-primary dark:shadow-primary/40">
                     {card.icon}
                   </div>
                 </div>
                 <dt className="relative mt-4 text-base font-bold uppercase tracking-[0.12em] text-primary dark:text-secondary">
                   {card.label}
                 </dt>
-                <dd className="relative mt-3 m-0 text-base leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-800 group-focus-visible:text-slate-800 sm:text-lg dark:text-slate-300 dark:group-hover:text-slate-100 dark:group-focus-visible:text-white">
+                <dd className="relative mt-3 m-0 text-justify text-base leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-800 group-focus-visible:text-slate-800 sm:text-lg dark:text-slate-300 dark:group-hover:text-slate-100 dark:group-focus-visible:text-white">
                   {card.stat ? (
                     <p className="mb-3 text-3xl font-extrabold tabular-nums tracking-tight text-slate-900 dark:text-white sm:text-4xl">
                       {card.stat}

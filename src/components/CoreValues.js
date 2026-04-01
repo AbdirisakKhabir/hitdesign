@@ -8,7 +8,7 @@ const values = [
     title: 'Creativity',
     body: 'Bold ideas and distinctive design that help your brand cut through noise and stay memorable.',
     icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -20,9 +20,9 @@ const values = [
   {
     key: 'integrity',
     title: 'Integrity',
-    body: 'Honest timelines, clear communication, and work we stand behind—every step of the way.',
+    body: 'Honest timelines, clear communication, and work we stand behind, every step of the way.',
     icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -34,9 +34,9 @@ const values = [
   {
     key: 'collaboration',
     title: 'Collaboration',
-    body: 'We treat your goals as our own—listening closely, iterating together, and sharing ownership of outcomes.',
+    body: 'We treat your goals as our own, listening closely, iterating together, and sharing ownership of outcomes.',
     icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -48,9 +48,9 @@ const values = [
   {
     key: 'excellence',
     title: 'Excellence',
-    body: 'High standards in craft and strategy—refining details until deliverables are ready for the real world.',
+    body: 'High standards in craft and strategy, refining details until deliverables are ready for the real world.',
     icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
       </svg>
     ),
@@ -101,7 +101,7 @@ export default function CoreValues() {
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">every project</span>
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
-            Principles we live by when we strategize, design, and deliver—so your brand gets work that lasts.
+            Principles we live by when we strategize, design, and deliver, so your brand gets work that lasts.
           </p>
         </header>
 
@@ -123,7 +123,7 @@ export default function CoreValues() {
                   className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary via-brand-500 to-secondary transition-transform duration-500 ease-out group-hover:scale-x-100"
                   aria-hidden
                 />
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/12 to-secondary/20 text-primary shadow-inner ring-1 ring-primary/10 transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 motion-safe:group-hover:rotate-3 dark:from-primary/25 dark:to-secondary/25 dark:text-secondary dark:ring-white/10">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-md shadow-primary/35 transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 dark:bg-primary dark:shadow-primary/40">
                   {item.icon}
                 </div>
                 <h3 className="mt-4 text-lg font-bold tracking-tight text-slate-900 dark:text-white">{item.title}</h3>

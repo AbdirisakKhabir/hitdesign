@@ -16,15 +16,19 @@ const packages = [
     subtitle: 'Business Package',
     title: 'Essential Business Package',
     description:
-      'A solid starting point for brands that want consistent social presence and on-brand creative without the overhead.',
+      'Custom scope for lean teams: posters, reels, and full social management with content and ads—volumes agreed to your needs.',
+    pricingHint: 'Custom package — pricing on request.',
     features: [
-      'Core social setup and posting rhythm',
-      'Campaign graphics and essential marketing pieces',
-      'Great for new and lean teams testing the waters',
+      'Custom package (volumes tailored to your scope)',
+      'Posters per month (custom per week)',
+      'Video reels per month (custom per week)',
+      'Social media management',
+      'Content creation & scheduled posting',
+      'Ads management & targeting',
     ],
     highlighted: false,
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
       </svg>
     ),
@@ -35,15 +39,20 @@ const packages = [
     subtitle: 'Business Package',
     title: 'Small Business Package',
     description:
-      'Built for growing businesses that need steady content, clearer branding on feeds, and room to scale campaigns.',
+      'Strategy-led social with fixed creative volumes, management, and a basic monthly performance report. From $50.',
+    pricingHint: 'From $50 — confirm scope on WhatsApp.',
     features: [
-      'Multi-format creatives for posts and promos',
-      'Stronger alignment between visuals and your brand story',
-      'Room to test campaigns and grow engagement',
+      'Social media strategy & planning',
+      '8 posters per month (2 per week)',
+      '4 video reels per month (1 per week)',
+      'Social media management',
+      'Content creation & scheduled posting',
+      'Ads management & targeting',
+      'Basic monthly performance report',
     ],
     highlighted: false,
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -58,15 +67,22 @@ const packages = [
     subtitle: 'Business Package',
     title: 'Medium Business Package',
     description:
-      'Our balanced tier for brands ready for structured social strategy, richer creative output, and ongoing momentum.',
+      'Setup, optimization, more posters, one professional long video per month, paid ads setup, and detailed reporting. From $100.',
+    pricingHint: 'From $100 — includes paid ads setup & targeting ($10).',
     features: [
-      'Campaign-led planning across your priority channels',
-      'Heavier design and content volume for sustained visibility',
-      'Ideal when marketing is a core growth lever',
+      'Social media strategy & planning',
+      'Social media setup & optimization',
+      '12 posters per month (3 per week)',
+      '1 professional long video per month',
+      'Social media management',
+      'Content creation & scheduled posting',
+      'Ads management & targeting',
+      'Paid ads setup & targeting ($10)',
+      'Detailed monthly performance report',
     ],
     highlighted: true,
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
       </svg>
     ),
@@ -77,15 +93,24 @@ const packages = [
     subtitle: 'Business Package',
     title: 'Enterprise Business Package',
     description:
-      'Full-scale social and creative support for organizations that need priority execution, depth, and coordination.',
+      'Maximum creative output, long-form video, competitor analysis, weekly reviews, and advanced analytics. From $150.',
+    pricingHint: 'From $150 — includes paid ads setup & targeting ($20).',
     features: [
-      'High-volume creative and campaign coverage',
-      'Priority workflows for launches and seasonal pushes',
-      'Suited to teams with complex goals and multiple touchpoints',
+      'Social media strategy & planning',
+      'Social media setup & optimization',
+      '12 video reels per month (3 per week)',
+      '2 professional long videos per month',
+      'Social media management',
+      'Content creation & scheduled posting',
+      'Ads management & targeting',
+      'Paid ads setup & targeting ($20)',
+      'Competitor & market analysis',
+      'Weekly performance reviews',
+      'Advanced monthly analytics report',
     ],
     highlighted: false,
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M10 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
@@ -96,15 +121,21 @@ const packages = [
     subtitle: 'Project Package',
     title: 'Academic Project Package',
     description:
-      'Tailored for schools, programs, and education-focused initiatives—clear messaging parents and students can trust.',
+      'Strategy plus custom poster and pro-video volumes for schools and programs, with management, content, ads, and analytics.',
+    pricingHint: 'Custom package — pricing on request.',
     features: [
-      'Tone and visuals suited to learning communities',
-      'Enrollment, events, and awareness campaigns',
-      'Steady presence that reflects your institution’s values',
+      'Social media strategy & planning',
+      'Custom package (volumes tailored to your scope)',
+      'Posters per month (custom per week)',
+      'Pro videos per month (custom per week)',
+      'Social media management',
+      'Content creation & scheduled posting',
+      'Ads management & targeting',
+      'Detailed monthly analytics report',
     ],
     highlighted: false,
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -119,15 +150,21 @@ const packages = [
     subtitle: 'Project Package',
     title: 'Health Project Package',
     description:
-      'For clinics, wellness brands, and health initiatives—trust-first creative that respects your audience and sector.',
+      'Custom volumes for health and wellness brands: setup, posters, pro videos, full management, and monthly reporting.',
+    pricingHint: 'Custom package — pricing on request.',
     features: [
-      'Calm, credible visuals aligned with care and professionalism',
-      'Campaigns for awareness, services, and community trust',
-      'Messaging that stays clear and responsible on social',
+      'Custom package (volumes tailored to your scope)',
+      'Social media setup & optimization',
+      'Posters per month (custom per week)',
+      'Pro videos per month (custom per week)',
+      'Social media management',
+      'Content creation & scheduled posting',
+      'Ads management & targeting',
+      'Monthly performance report',
     ],
     highlighted: false,
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
       </svg>
     ),
@@ -171,7 +208,7 @@ export default function Packages() {
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">goals &amp; scale</span>
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
-            From essential through enterprise—plus academic and health-focused projects. Tap Order now to chat on WhatsApp and get a tailored quote.
+            From essential through enterprise, plus academic and health-focused projects. Tap Order now to chat on WhatsApp and get a tailored quote.
           </p>
         </header>
 
@@ -183,7 +220,7 @@ export default function Packages() {
             <article
               key={pkg.id}
               style={cardsInView ? { animationDelay: `${index * 0.07}s` } : undefined}
-              className={`flex flex-col rounded-2xl border p-5 shadow-sm transition will-change-transform motion-reduce:will-change-auto sm:p-6 ${
+              className={`group flex flex-col rounded-2xl border p-5 shadow-sm transition will-change-transform motion-reduce:will-change-auto sm:p-6 ${
                 cardsInView
                   ? 'motion-safe:animate-about-card-in motion-reduce:opacity-100 motion-reduce:translate-y-0'
                   : 'opacity-0 translate-y-5 motion-reduce:opacity-100 motion-reduce:translate-y-0'
@@ -193,7 +230,7 @@ export default function Packages() {
                   : 'border-slate-200/90 bg-slate-50/80 dark:border-white/10 dark:bg-brand-900/35'
               }`}
             >
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/12 to-secondary/20 text-primary shadow-inner ring-1 ring-primary/10 dark:from-primary/25 dark:to-secondary/25 dark:text-secondary dark:ring-white/10 sm:h-[4.5rem] sm:w-[4.5rem]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-md shadow-primary/35 transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 dark:bg-primary dark:shadow-primary/40">
                 {pkg.icon}
               </div>
 
@@ -205,13 +242,13 @@ export default function Packages() {
 
               <div className="mt-4 border-t border-slate-200/80 pt-4 dark:border-white/10">
                 <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                  Pricing on request — we&apos;ll match scope to your tier.
+                  {pkg.pricingHint ?? 'Pricing on request. We&apos;ll match scope to your tier.'}
                 </p>
               </div>
 
               <ul className="mt-3 flex-1 space-y-2 text-sm text-slate-700 dark:text-slate-300 sm:text-base">
-                {pkg.features.map((line) => (
-                  <li key={line} className="flex gap-2">
+                {pkg.features.map((line, fIdx) => (
+                  <li key={`${pkg.id}-feat-${fIdx}`} className="flex gap-2">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary dark:bg-secondary" aria-hidden />
                     <span>{line}</span>
                   </li>

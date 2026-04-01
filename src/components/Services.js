@@ -9,7 +9,7 @@ const services = [
     description:
       'Strategic campaigns across social platforms to grow visibility, engagement, and conversions for your brand.',
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -24,7 +24,7 @@ const services = [
     description:
       'Content creation, scheduling, community interaction, and steady growth of your social presence.',
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -39,7 +39,7 @@ const services = [
     description:
       'Logos, brand guidelines, and marketing materials that express who you are with clarity and consistency.',
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -54,7 +54,7 @@ const services = [
     description:
       'Posters, flyers, banners, and digital creatives tailored for launches, promos, and campaigns.',
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -69,7 +69,7 @@ const services = [
     description:
       'Promotional and social-first video that tells your story, holds attention, and supports your message.',
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -82,9 +82,9 @@ const services = [
     key: 'event',
     title: 'Event branding design',
     description:
-      'Cohesive visuals for events—banners, stages, backdrops, and collateral that feel on-brand on site.',
+      'Cohesive visuals for events: banners, stages, backdrops, and collateral that feel on-brand on site.',
     icon: (
-      <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
       </svg>
     ),
@@ -138,7 +138,7 @@ export default function Services() {
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">stand out</span>
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
-            From social and content to identity and events—we deliver cohesive creative work aligned with your goals.
+            From social and content to identity and events, we deliver cohesive creative work aligned with your goals.
           </p>
         </header>
 
@@ -160,7 +160,7 @@ export default function Services() {
                   className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary via-brand-500 to-secondary transition-transform duration-500 ease-out group-hover:scale-x-100"
                   aria-hidden
                 />
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/12 to-secondary/18 text-primary shadow-inner ring-1 ring-primary/10 transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 motion-safe:group-hover:rotate-3 dark:from-primary/25 dark:to-secondary/25 dark:text-secondary dark:ring-white/10 sm:h-[4.5rem] sm:w-[4.5rem]">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-md shadow-primary/35 transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 dark:bg-primary dark:shadow-primary/40">
                   {item.icon}
                 </div>
                 <h3 className="mt-5 text-base font-bold tracking-tight text-slate-900 sm:text-lg dark:text-white">{item.title}</h3>

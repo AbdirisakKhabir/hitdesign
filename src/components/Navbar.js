@@ -33,14 +33,14 @@ export default function Navbar() {
         <Link to="/" className="flex min-w-0 shrink items-center">
           <img
             src={logoFullLight}
-            alt="Hitdesigns — Branding &amp; Advertising"
+            alt="Hitdesigns, Branding &amp; Advertising"
             className="h-10 w-auto max-w-[min(100%,280px)] object-contain object-left sm:h-12 dark:hidden"
             width={280}
             height={48}
           />
           <img
             src={logoFullDark}
-            alt="Hitdesigns — Branding &amp; Advertising"
+            alt="Hitdesigns, Branding &amp; Advertising"
             className="hidden h-10 w-auto max-w-[min(100%,280px)] object-contain object-left sm:h-12 dark:block"
             width={280}
             height={48}

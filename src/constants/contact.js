@@ -1,4 +1,4 @@
-/** Somalia — display +252… (no leading 0); E.164 for tel / WhatsApp */
+/** Somalia - display +252… (no leading 0); E.164 for tel / WhatsApp */
 export const PHONE_PRIMARY = {
   display: '+252 63 4888789',
   tel: '+252634888789',

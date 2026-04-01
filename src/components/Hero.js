@@ -6,7 +6,7 @@ const techBase = `${process.env.PUBLIC_URL}/tech`;
 
 const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
-/** Simple Icons (MIT) — https://simpleicons.org — assets in /public/tech */
+/** Simple Icons (MIT) - https://simpleicons.org - assets in /public/tech */
 const cornerTechStack = [
   { id: 'premiere', file: 'adobe-premiere-pro.svg', label: 'Adobe Premiere Pro', corner: 'tl' },
   { id: 'illustrator', file: 'adobe-illustrator.svg', label: 'Adobe Illustrator', corner: 'tr' },
@@ -42,10 +42,10 @@ export default function Hero() {
       <div className="pointer-events-none absolute -left-32 top-0 h-80 w-80 rounded-full bg-primary/12 blur-3xl dark:bg-primary/20" />
       <div className="pointer-events-none absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-secondary/10 blur-3xl dark:bg-secondary/12" />
 
-      {/* Fills viewport below navbar; About stays outside this height — svh on small viewports helps mobile browser UI; dvh from sm+ */}
+      {/* Fills viewport below navbar; About stays outside this height - svh on small viewports helps mobile browser UI; dvh from sm+ */}
       <div className="relative flex min-h-[calc(100svh-5.25rem)] flex-col justify-center sm:min-h-[calc(100dvh-6.25rem)]">
         <div className="relative mx-auto flex w-full min-w-0 max-w-7xl flex-col gap-10 pb-12 pt-4 sm:gap-12 sm:pb-14 sm:pt-6 lg:flex-row lg:items-center lg:gap-14 lg:pb-16 lg:pt-2">
-        {/* Copy — min-w-0 avoids flex overflow on narrow / zoomed / wide-mobile viewports */}
+        {/* Copy - min-w-0 avoids flex overflow on narrow / zoomed / wide-mobile viewports */}
         <div className="min-w-0 flex-1 text-center lg:max-w-2xl lg:text-left">
           <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 sm:text-4xl sm:leading-[1.08] lg:text-[2.65rem] lg:leading-[1.06] xl:text-[3rem] xl:leading-[1.05] dark:text-white">
             Transforming ideas into{' '}
@@ -80,7 +80,7 @@ export default function Hero() {
           </dl>
         </div>
 
-        {/* Glass card + tech stack badges — max-w never exceeds parent (works on all widths, including “desktop” mode on mobile) */}
+        {/* Glass card + tech stack badges - max-w never exceeds parent (works on all widths, including “desktop” mode on mobile) */}
         <div className="relative mx-auto w-full min-w-0 max-w-[min(100%,360px)] shrink-0 sm:max-w-[min(100%,400px)] lg:max-w-[min(100%,440px)]">
             <div className="absolute -inset-2 rounded-[1.75rem] bg-gradient-to-br from-primary/25 via-transparent to-secondary/20 opacity-80 blur-xl dark:from-primary/20 dark:to-secondary/15" aria-hidden />
             {cornerTechStack.map((tool) => (
@@ -127,7 +127,7 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-slate-500 dark:text-slate-400 sm:text-sm">Engagement &amp; reach — illustrative snapshot</p>
+              <p className="mt-4 text-xs text-slate-500 dark:text-slate-400 sm:text-sm">Engagement &amp; reach, illustrative snapshot</p>
               <div className="mt-5 rounded-2xl border border-primary/15 bg-gradient-to-r from-primary/95 via-brand-600 to-secondary/95 px-4 py-3 text-center dark:border-secondary/20 dark:from-secondary/80 dark:via-primary/90 dark:to-brand-700/90">
                 <p className="text-xs font-medium tracking-wide text-white/95 sm:text-sm">
                   Creativity · Innovation · Quality · Client focus

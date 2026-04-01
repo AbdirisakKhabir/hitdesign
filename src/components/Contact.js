@@ -51,7 +51,7 @@ export default function Contact() {
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">remarkable</span>
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
-            Tell us about your project—we&apos;ll get back to you as soon as we can.
+            Tell us about your project. We&apos;ll get back to you as soon as we can.
           </p>
         </header>
 

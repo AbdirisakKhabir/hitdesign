@@ -38,6 +38,8 @@ module.exports = {
         'marquee-rev': 'marquee 48s linear infinite reverse',
         'about-card-in':
           'aboutCardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+        'perf-card-in': 'perfCardIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+        'perf-float': 'perfFloat 4.5s ease-in-out infinite',
       },
       keyframes: {
         float: {
@@ -51,6 +53,14 @@ module.exports = {
         aboutCardIn: {
           '0%': { opacity: '0', transform: 'translateY(1.35rem) scale(0.98)' },
           '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        perfCardIn: {
+          '0%': { opacity: '0', transform: 'translateY(1rem)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        perfFloat: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
         },
       },
     },

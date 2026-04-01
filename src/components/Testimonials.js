@@ -80,7 +80,7 @@ export default function Testimonials() {
             What our clients say
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
-            Feedback from schools, exchanges, and partners we&apos;ve worked with—pulled from client submissions.
+            Feedback from schools, exchanges, and partners we&apos;ve worked with, pulled from client submissions.
           </p>
         </header>
 

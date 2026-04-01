@@ -45,7 +45,7 @@ export default function Footer() {
               </div>
             </a>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400 sm:text-base">
-              Creative digital marketing, design, and branding—helping businesses grow with strategy, craft, and clarity.
+              Creative digital marketing, design, and branding, helping businesses grow with strategy, craft, and clarity.
             </p>
           </div>
 

@@ -2,7 +2,7 @@ const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
 const publicClients = `${process.env.PUBLIC_URL}/clients`;
 
-/** Logos in public/clients/ — alt text for accessibility */
+/** Logos in public/clients/ - alt text for accessibility */
 const clientsRowA = [
   {
     id: 'c1',
@@ -12,7 +12,7 @@ const clientsRowA = [
   {
     id: 'c2',
     file: 'client-02.png',
-    alt: 'Client logo — blue circular AE monogram',
+    alt: 'Client logo, blue circular AE monogram',
   },
   {
     id: 'c3',
@@ -45,7 +45,7 @@ const clientsRowB = [
   {
     id: 'c8',
     file: 'client-08.png',
-    alt: 'Client logo — stylized letter mark',
+    alt: 'Client logo, stylized letter mark',
   },
   {
     id: 'c9',
@@ -55,7 +55,7 @@ const clientsRowB = [
   {
     id: 'c10',
     file: 'client-10.png',
-    alt: 'Client logo — geometric mark',
+    alt: 'Client logo, geometric mark',
   },
 ];
 
