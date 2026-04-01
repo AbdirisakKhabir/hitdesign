@@ -73,7 +73,7 @@ const identityItems = Array.from({ length: 15 }, (_, i) => {
 });
 
 /** Commercial videos - MP4 under public/portfolio/commercial-videos/cv-01…04.mp4; optional matching JPG poster cv-01…04.jpg */
-const videoItems = [
+const mp4VideoItems = [
   { id: 'v01', title: 'Brand spot, launch', type: 'Commercial video' },
   { id: 'v02', title: 'Product showcase', type: 'Commercial video' },
   { id: 'v03', title: 'Social campaign cut', type: 'Commercial video' },
@@ -87,6 +87,20 @@ const videoItems = [
     videoSrc: `${portfolioBase}/commercial-videos/cv-${n}.mp4`,
   };
 });
+
+/** Facebook Reels embedded in Commercial Videos tab */
+const facebookReelItems = [
+  { id: 'fr01', title: 'Social reel 1', type: 'Facebook reel', facebookReelUrl: 'https://www.facebook.com/reel/1479503777139584' },
+  { id: 'fr02', title: 'Social reel 2', type: 'Facebook reel', facebookReelUrl: 'https://www.facebook.com/reel/1646645163197855' },
+  { id: 'fr03', title: 'Social reel 3', type: 'Facebook reel', facebookReelUrl: 'https://www.facebook.com/reel/1290132326347033' },
+].map((item) => ({ ...item, category: 'video' }));
+
+const videoItems = [...mp4VideoItems, ...facebookReelItems];
+
+function facebookReelEmbedSrc(reelUrl) {
+  const href = encodeURIComponent(reelUrl);
+  return `https://www.facebook.com/plugins/video.php?href=${href}&show_text=false&width=500&height=889&t=0`;
+}
 
 const projectsAll = [...posterItems, ...brandItems, ...identityItems, ...videoItems];
 
@@ -153,8 +167,27 @@ export default function Portfolio({ showCommercialVideos = true }) {
           {visible.map((item) => (
             <li key={item.id}>
               <figure className="overflow-hidden rounded-lg border border-slate-200/90 bg-slate-50 dark:border-white/10 dark:bg-brand-900/30">
-                <div className="aspect-[4/5] overflow-hidden bg-slate-200/80 dark:bg-brand-950/50">
-                  {item.videoSrc ? (
+                <div
+                  className={
+                    item.facebookReelUrl
+                      ? 'relative aspect-[9/16] overflow-hidden bg-slate-200/80 dark:bg-brand-950/50'
+                      : 'aspect-[4/5] overflow-hidden bg-slate-200/80 dark:bg-brand-950/50'
+                  }
+                >
+                  {item.facebookReelUrl ? (
+                    <iframe
+                      title={`${item.title}, ${item.type}`}
+                      src={facebookReelEmbedSrc(item.facebookReelUrl)}
+                      width="500"
+                      height="889"
+                      className="absolute inset-0 h-full w-full border-0"
+                      scrolling="no"
+                      frameBorder="0"
+                      allowFullScreen
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      loading="lazy"
+                    />
+                  ) : item.videoSrc ? (
                     <video
                       className="h-full w-full object-cover"
                       controls
@@ -180,6 +213,18 @@ export default function Portfolio({ showCommercialVideos = true }) {
                 <figcaption className="border-t border-slate-200/80 px-2.5 py-2 dark:border-white/10">
                   <p className="truncate text-sm font-medium text-slate-900 dark:text-white">{item.title}</p>
                   <p className="truncate text-xs text-slate-500 dark:text-slate-400">{item.type}</p>
+                  {item.facebookReelUrl && (
+                    <p className="mt-1 truncate text-xs">
+                      <a
+                        href={item.facebookReelUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-primary underline-offset-2 transition hover:underline dark:text-secondary"
+                      >
+                        Open on Facebook
+                      </a>
+                    </p>
+                  )}
                 </figcaption>
               </figure>
             </li>
