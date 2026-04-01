@@ -3,6 +3,7 @@ import CoreValues from '../components/CoreValues';
 import Services from '../components/Services';
 import Packages from '../components/Packages';
 import Clients from '../components/Clients';
+import Videos from '../components/Videos';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import Contact from '../components/Contact';
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Services />
       <Packages />
       <Clients />
+      <Videos />
       <Testimonials />
       <Team />
       <Contact />
