@@ -149,13 +149,7 @@ export default function Portfolio({ showCommercialVideos = true }) {
           {visible.map((item) => (
             <li key={item.id}>
               <figure className="overflow-hidden rounded-lg border border-slate-200/90 bg-slate-50 dark:border-white/10 dark:bg-brand-900/30">
-                <div
-                  className={
-                    item.facebookReelUrl
-                      ? 'relative aspect-[9/16] overflow-hidden bg-slate-200/80 dark:bg-brand-950/50'
-                      : 'aspect-[4/5] overflow-hidden bg-slate-200/80 dark:bg-brand-950/50'
-                  }
-                >
+                <div className="relative aspect-[4/5] overflow-hidden bg-slate-200/80 dark:bg-brand-950/50">
                   {item.facebookReelUrl ? (
                     <iframe
                       title={`${item.title}, ${item.type}`}
