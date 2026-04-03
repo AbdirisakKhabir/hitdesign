@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { PHONE_PRIMARY } from '../constants/contact';
+import { WHATSAPP_CONTACT } from '../constants/contact';
 
 const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
 function whatsappOrderUrl(packageTitle) {
   const text = `Hi Hitdesigns, I'd like to order the "${packageTitle}" package.`;
-  return `https://wa.me/${PHONE_PRIMARY.whatsappDigits}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${WHATSAPP_CONTACT.whatsappDigits}?text=${encodeURIComponent(text)}`;
 }
 
 const packages = [
@@ -17,9 +17,10 @@ const packages = [
     title: 'Essential Business Package',
     description:
       'Custom scope for lean teams: posters, reels, and full social management with content and ads—volumes agreed to your needs.',
-    pricingHint: 'Custom package — pricing on request.',
+    pricingHint: 'Custom package pricing on request.',
+    pricingHintBold: true,
     features: [
-      'Custom package (volumes tailored to your scope)',
+      'Social media setup & optimization',
       'Posters per month (custom per week)',
       'Video reels per month (custom per week)',
       'Social media management',
@@ -42,13 +43,14 @@ const packages = [
       'Strategy-led social with fixed creative volumes, management, and a basic monthly performance report. From $50.',
     pricingHint: 'From $50 — confirm scope on WhatsApp.',
     features: [
-      'Social media strategy & planning',
-      '8 posters per month (2 per week)',
-      '4 video reels per month (1 per week)',
-      'Social media management',
-      'Content creation & scheduled posting',
-      'Ads management & targeting',
-      'Basic monthly performance report',
+      'Social Media Strategy & Planning',
+      'Social Media Setup & Optimization',
+      '8 Posters – Month (2 per week)',
+      '4 Video Reels – Month (1 per week)',
+      'Social Media Management',
+      'Content Creation & Scheduled Posting',
+      'Ads Management & Targeting',
+      'Basic Monthly Performance Report',
     ],
     highlighted: false,
     icon: (
@@ -67,18 +69,19 @@ const packages = [
     subtitle: 'Business Package',
     title: 'Medium Business Package',
     description:
-      'Setup, optimization, more posters, one professional long video per month, paid ads setup, and detailed reporting. From $100.',
+      'Strategy, setup, posters and reels, one professional long video per month, paid ads setup, and detailed reporting. From $100.',
     pricingHint: 'From $100 — includes paid ads setup & targeting ($10).',
     features: [
-      'Social media strategy & planning',
-      'Social media setup & optimization',
-      '12 posters per month (3 per week)',
-      '1 professional long video per month',
-      'Social media management',
-      'Content creation & scheduled posting',
-      'Ads management & targeting',
-      'Paid ads setup & targeting ($10)',
-      'Detailed monthly performance report',
+      'Social Media Strategy & Planning',
+      'Social Media Setup & Optimization',
+      '12 Posters – Month (3 per week)',
+      '8 Video Reels – Month (2 per week)',
+      '1 Professional Long Video (Month)',
+      'Social Media Management',
+      'Content Creation & Scheduled Posting',
+      'Ads Management & Targeting',
+      'Paid Ads Setup & Targeting ($10)',
+      'Detailed Monthly Performance Report',
     ],
     highlighted: true,
     icon: (
@@ -93,20 +96,21 @@ const packages = [
     subtitle: 'Business Package',
     title: 'Enterprise Business Package',
     description:
-      'Maximum creative output, long-form video, competitor analysis, weekly reviews, and advanced analytics. From $150.',
+      'High-volume posters and reels, long-form video, competitor analysis, weekly reviews, and advanced analytics. From $150.',
     pricingHint: 'From $150 — includes paid ads setup & targeting ($20).',
     features: [
-      'Social media strategy & planning',
-      'Social media setup & optimization',
-      '12 video reels per month (3 per week)',
-      '2 professional long videos per month',
-      'Social media management',
-      'Content creation & scheduled posting',
-      'Ads management & targeting',
-      'Paid ads setup & targeting ($20)',
-      'Competitor & market analysis',
-      'Weekly performance reviews',
-      'Advanced monthly analytics report',
+      'Social Media Strategy & Planning',
+      'Social Media Setup & Optimization',
+      '16 Posters – Month (4 per week)',
+      '12 Video Reels – Month (3 per week)',
+      '2 Professional Long Video (Month)',
+      'Social Media Management',
+      'Content Creation & Scheduled Posting',
+      'Ads Management & Targeting',
+      'Paid Ads Setup & Targeting ($20)',
+      'Competitor & Market Analysis',
+      'Weekly Performance Reviews',
+      'Advanced Monthly Analytics Report',
     ],
     highlighted: false,
     icon: (
@@ -121,17 +125,17 @@ const packages = [
     subtitle: 'Project Package',
     title: 'Academic Project Package',
     description:
-      'Strategy plus custom poster and pro-video volumes for schools and programs, with management, content, ads, and analytics.',
+      'Strategy, setup, and custom poster and pro-video volumes for schools and programs, with management, content, ads, and analytics.',
     pricingHint: 'Custom package — pricing on request.',
     features: [
-      'Social media strategy & planning',
-      'Custom package (volumes tailored to your scope)',
-      'Posters per month (custom per week)',
-      'Pro videos per month (custom per week)',
-      'Social media management',
-      'Content creation & scheduled posting',
-      'Ads management & targeting',
-      'Detailed monthly analytics report',
+      'Social Media Strategy & Planning',
+      'Social Media Setup & Optimization',
+      'Posters – Month (Customer per week)',
+      'Pro Videos – Month (Customer per week)',
+      'Social Media Management',
+      'Content Creation & Scheduled Posting',
+      'Ads Management & Targeting',
+      'Detailed Monthly Analytics Report',
     ],
     highlighted: false,
     icon: (
@@ -150,17 +154,17 @@ const packages = [
     subtitle: 'Project Package',
     title: 'Health Project Package',
     description:
-      'Custom volumes for health and wellness brands: setup, posters, pro videos, full management, and monthly reporting.',
+      'Strategy, setup, and custom poster and pro-video volumes for health and wellness brands, with full management and monthly reporting.',
     pricingHint: 'Custom package — pricing on request.',
     features: [
-      'Custom package (volumes tailored to your scope)',
-      'Social media setup & optimization',
-      'Posters per month (custom per week)',
-      'Pro videos per month (custom per week)',
-      'Social media management',
-      'Content creation & scheduled posting',
-      'Ads management & targeting',
-      'Monthly performance report',
+      'Social Media Strategy & Planning',
+      'Social Media Setup & Optimization',
+      'Posters – Month (Customer per week)',
+      'Pro Videos – Month (Customer per week)',
+      'Social Media Management',
+      'Content Creation & Scheduled Posting',
+      'Ads Management & Targeting',
+      'Monthly Performance Report',
     ],
     highlighted: false,
     icon: (
@@ -236,23 +240,33 @@ export default function Packages() {
 
               <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-900 dark:text-white">
                 <span className="text-primary dark:text-secondary">{pkg.emphasis}</span>{' '}
-                <span className="font-semibold text-slate-800 dark:text-slate-100">{pkg.subtitle}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{pkg.subtitle}</span>
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">{pkg.description}</p>
 
               <div className="mt-4 border-t border-slate-200/80 pt-4 dark:border-white/10">
-                <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                <p
+                  className={
+                    pkg.pricingHintBold
+                      ? 'text-sm font-bold text-slate-900 dark:text-white'
+                      : 'text-sm font-medium text-slate-700 dark:text-slate-300'
+                  }
+                >
                   {pkg.pricingHint ?? 'Pricing on request. We&apos;ll match scope to your tier.'}
                 </p>
               </div>
 
               <ul className="mt-3 flex-1 space-y-2 text-sm text-slate-700 dark:text-slate-300 sm:text-base">
-                {pkg.features.map((line, fIdx) => (
-                  <li key={`${pkg.id}-feat-${fIdx}`} className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary dark:bg-secondary" aria-hidden />
-                    <span>{line}</span>
-                  </li>
-                ))}
+                {pkg.features.map((line, fIdx) => {
+                  const text = typeof line === 'string' ? line : line.text;
+                  const isBold = typeof line === 'object' && line.bold;
+                  return (
+                    <li key={`${pkg.id}-feat-${fIdx}`} className="flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary dark:bg-secondary" aria-hidden />
+                      <span className={isBold ? 'font-bold text-slate-900 dark:text-white' : undefined}>{text}</span>
+                    </li>
+                  );
+                })}
               </ul>
 
               <a

@@ -1,4 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import {
+  BrandingSwatchIcon,
+  EventSparklesIcon,
+  SocialMarketingMegaphoneIcon,
+  SocialManagementCalendarIcon,
+} from './icons/cardIcons';
 
 const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
@@ -8,45 +14,21 @@ const services = [
     title: 'Social media marketing',
     description:
       'Strategic campaigns across social platforms to grow visibility, engagement, and conversions for your brand.',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.018c4.25.001 6.5 5.75 3.5 9.122M7 6c0-1.657 1.343-3 3-3s3 1.343 3 3v.5"
-        />
-      </svg>
-    ),
+    icon: <SocialMarketingMegaphoneIcon />,
   },
   {
     key: 'smgmt',
     title: 'Social media management',
     description:
       'Content creation, scheduling, community interaction, and steady growth of your social presence.',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-        />
-      </svg>
-    ),
+    icon: <SocialManagementCalendarIcon />,
   },
   {
     key: 'brand',
     title: 'Graphic design & branding',
     description:
       'Logos, brand guidelines, and marketing materials that express who you are with clarity and consistency.',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-        />
-      </svg>
-    ),
+    icon: <BrandingSwatchIcon />,
   },
   {
     key: 'mkt',
@@ -83,11 +65,7 @@ const services = [
     title: 'Event branding design',
     description:
       'Cohesive visuals for events: banners, stages, backdrops, and collateral that feel on-brand on site.',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-      </svg>
-    ),
+    icon: <EventSparklesIcon />,
   },
 ];
 
