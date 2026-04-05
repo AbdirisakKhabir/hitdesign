@@ -3,8 +3,9 @@ import {
   BrandingSwatchIcon,
   EventSparklesIcon,
   SocialMarketingMegaphoneIcon,
-  SocialManagementCalendarIcon,
 } from './icons/cardIcons';
+
+const socialMediaManagementIcon = `${process.env.PUBLIC_URL}/icons/social-media-management.png`;
 
 const sectionPad = 'px-4 sm:px-6 lg:px-10 xl:px-14';
 
@@ -21,7 +22,16 @@ const services = [
     title: 'Social media management',
     description:
       'Content creation, scheduling, community interaction, and steady growth of your social presence.',
-    icon: <SocialManagementCalendarIcon />,
+    icon: (
+      <img
+        src={socialMediaManagementIcon}
+        alt=""
+        width={24}
+        height={24}
+        className="h-6 w-6 object-contain brightness-0 invert"
+        aria-hidden
+      />
+    ),
   },
   {
     key: 'brand',

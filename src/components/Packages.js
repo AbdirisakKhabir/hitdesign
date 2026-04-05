@@ -245,7 +245,7 @@ export default function Packages() {
               <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">{pkg.description}</p>
 
               <div className="mt-4 border-t border-slate-200/80 pt-4 dark:border-white/10">
-                <p
+                {/* <p
                   className={
                     pkg.pricingHintBold
                       ? 'text-sm font-bold text-slate-900 dark:text-white'
@@ -253,7 +253,13 @@ export default function Packages() {
                   }
                 >
                   {pkg.pricingHint ?? 'Pricing on request. We&apos;ll match scope to your tier.'}
+                </p> */}
+
+                <p className="text-sm font-bold text-slate-900 dark:text-white">
+                  {pkg.pricingHint}
                 </p>
+
+
               </div>
 
               <ul className="mt-3 flex-1 space-y-2 text-sm text-slate-700 dark:text-slate-300 sm:text-base">
